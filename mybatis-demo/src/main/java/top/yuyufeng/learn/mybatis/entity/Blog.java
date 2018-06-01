@@ -1,12 +1,13 @@
 package top.yuyufeng.learn.mybatis.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author yuyufeng
  * @date 2018/5/25.
  */
-public class Blog {
+public class Blog implements Serializable{
     private Long blogId;
     private String blogTitle;
     private String blogContent;

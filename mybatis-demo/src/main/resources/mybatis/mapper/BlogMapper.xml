@@ -3,7 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.yuyufeng.learn.mybatis.mapper.BlogMapper">
+    <cache/>
+
+
     <select id="selectBlog" resultType="top.yuyufeng.learn.mybatis.entity.Blog">
         select blog_id,blog_title,blog_content,create_time from blog where blog_id = #{blogId}
     </select>
+
 </mapper>

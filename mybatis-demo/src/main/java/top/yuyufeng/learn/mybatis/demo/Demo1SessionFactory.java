@@ -1,10 +1,11 @@
-package top.yuyufeng.learn.mybatis.start;
+package top.yuyufeng.learn.mybatis.demo;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import top.yuyufeng.learn.mybatis.entity.Blog;
+import top.yuyufeng.learn.mybatis.mapper.BlogMapper;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,13 +18,20 @@ public class Demo1SessionFactory {
     public static void main(String[] args) throws IOException {
         String resource = "mybatis/conf/mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
+        //从 XML 中构建 SqlSessionFactory
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession session = sqlSessionFactory.openSession();
         try {
-            Blog blog = session.selectOne("top.yuyufeng.learn.mybatis.mapper.BlogMapper.selectBlog", 1L);
-            System.out.println(blog);
+            BlogMapper mapper = session.getMapper(BlogMapper.class);
+            Blog blog1 = mapper.selectBlog(1L);
+            System.out.println("blog1:" + blog1);
+
+            Blog blog2 = mapper.selectBlogByBlogId(1L);
+            System.out.println("blog2:" + blog2);
         } finally {
             session.close();
         }
+
+
     }
 }
