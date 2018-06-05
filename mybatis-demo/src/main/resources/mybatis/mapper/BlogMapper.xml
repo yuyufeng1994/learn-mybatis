@@ -10,4 +10,17 @@
         select blog_id,blog_title,blog_content,create_time from blog where blog_id = #{blogId}
     </select>
 
+    <insert id="insert" parameterType="top.yuyufeng.learn.mybatis.entity.Blog">
+        INSERT INTO blog(blog_title,blog_content,create_time)
+        VALUES (#{blogTitle,jdbcType=VARCHAR},#{blogContent,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP})
+    </insert>
+
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO blog(blog_title,blog_content,create_time) VALUES
+        <foreach collection="blogList" index="index" item="item" separator=",">
+            (#{item.blogTitle,jdbcType=VARCHAR},#{item.blogContent,jdbcType=VARCHAR},#{item.createTime,jdbcType=TIMESTAMP})
+        </foreach>
+    </insert>
+
 </mapper>

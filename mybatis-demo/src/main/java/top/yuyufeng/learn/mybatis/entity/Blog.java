@@ -11,7 +11,7 @@ public class Blog implements Serializable{
     private Long blogId;
     private String blogTitle;
     private String blogContent;
-    private Date createtime;
+    private Date createTime;
 
     public Long getBlogId() {
         return blogId;
@@ -37,12 +37,12 @@ public class Blog implements Serializable{
         this.blogContent = blogContent;
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Blog implements Serializable{
                 "blogId=" + blogId +
                 ", blogTitle='" + blogTitle + '\'' +
                 ", blogContent='" + blogContent + '\'' +
-                ", createtime=" + createtime +
+                ", createTime=" + createTime +
                 '}';
     }
 }
