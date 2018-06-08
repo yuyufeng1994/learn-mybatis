@@ -10,6 +10,10 @@
         select blog_id,blog_title,blog_content,create_time from blog where blog_id = #{blogId}
     </select>
 
+    <select id="list" resultType="top.yuyufeng.learn.mybatis.entity.Blog">
+        select blog_id,blog_title,blog_content,create_time from blog
+    </select>
+
     <insert id="insert" parameterType="top.yuyufeng.learn.mybatis.entity.Blog">
         INSERT INTO blog(blog_title,blog_content,create_time)
         VALUES (#{blogTitle,jdbcType=VARCHAR},#{blogContent,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP})

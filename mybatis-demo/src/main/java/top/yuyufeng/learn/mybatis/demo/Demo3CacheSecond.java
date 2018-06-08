@@ -18,20 +18,25 @@ public class Demo3CacheSecond {
     public static void main(String[] args) throws IOException {
         String resource = "mybatis/conf/mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
-        //从 XML 中构建 SqlSessionFactory
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
         SqlSession session1 = sqlSessionFactory.openSession();
-        SqlSession session2 = sqlSessionFactory.openSession();
         try {
             BlogMapper mapper1 = session1.getMapper(BlogMapper.class);
-            BlogMapper mapper2 = session2.getMapper(BlogMapper.class);
             Blog blog1 = mapper1.selectBlog(1L);
             System.out.println("blog1:" + blog1);
             session1.commit();
-            Blog blog2 = mapper2.selectBlog(1L);
-            System.out.println("blog2:" + blog2);
         } finally {
             session1.close();
+        }
+
+        SqlSession session2 = sqlSessionFactory.openSession();
+        try {
+            BlogMapper mapper2 = session2.getMapper(BlogMapper.class);
+            Blog blog2 = mapper2.selectBlog(1L);
+            System.out.println("blog2:" + blog2);
+            session2.commit();
+        } finally {
             session2.close();
         }
     }

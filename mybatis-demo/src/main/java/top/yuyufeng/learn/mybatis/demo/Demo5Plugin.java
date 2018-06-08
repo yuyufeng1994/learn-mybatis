@@ -1,5 +1,6 @@
 package top.yuyufeng.learn.mybatis.demo;
 
+import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -9,12 +10,13 @@ import top.yuyufeng.learn.mybatis.mapper.BlogMapper;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * @author yuyufeng
- * @date 2018/5/25.
+ * @date 2018/6/8.
  */
-public class Demo1SessionFactory {
+public class Demo5Plugin {
     public static void main(String[] args) throws IOException {
         String resource = "mybatis/conf/mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
@@ -23,10 +25,11 @@ public class Demo1SessionFactory {
         SqlSession session = sqlSessionFactory.openSession();
         try {
             BlogMapper mapper = session.getMapper(BlogMapper.class);
-            Blog blog = mapper.selectBlog(1L);
-            System.out.println(blog);
-//            blog = mapper.selectBlog(1L);
-//            System.out.println(blog);
+            PageHelper.startPage(1, 5, "create_time desc");
+            List<Blog> blogs = mapper.list();
+            for (Blog blog : blogs) {
+                System.out.println(blog);
+            }
         } finally {
             session.close();
         }

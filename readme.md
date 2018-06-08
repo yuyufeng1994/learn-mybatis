@@ -22,5 +22,9 @@ SqlSessionFactory 一旦被创建就应该在应用的运行期间一直存在�
 ### 参考文档
 [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html)
 
-### Mybatis Interceptor
+### MyBatis Interceptor
 [https://www.cnblogs.com/daxin/p/3541922.html](https://www.cnblogs.com/daxin/p/3541922.html)
+### MyBatis 架构
+[https://www.cnblogs.com/my376908915/p/6812666.html](https://www.cnblogs.com/my376908915/p/6812666.html)
+### MyBatis 缓存
+[https://www.cnblogs.com/jtlgb/p/6037945.html](https://www.cnblogs.com/jtlgb/p/6037945.html)

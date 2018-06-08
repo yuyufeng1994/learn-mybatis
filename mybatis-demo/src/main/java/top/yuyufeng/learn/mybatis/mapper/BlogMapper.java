@@ -43,5 +43,9 @@ public interface BlogMapper {
     int insertBatch(@Param("blogList") List<Blog> blogList);
 
 
-
+    /**
+     * 查询列表
+     * @return
+     */
+    List<Blog> list();
 }

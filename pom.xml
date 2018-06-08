@@ -27,6 +27,12 @@
             <version>3.3.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
         <!-- java日志： slf4j,log4j,logback,common-looging slf4j是规范/接口 使用：slf4j,logback start-->
         <dependency>
             <groupId>org.slf4j</groupId>
