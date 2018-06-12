@@ -14,7 +14,7 @@
         <!--开启驼峰命名转换-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!--日志-->
-        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
 
         <!-- 开启二级缓存  默认值为true -->
         <setting name="cacheEnabled" value="false"/>
@@ -22,7 +22,7 @@
     </settings>
 
     <plugins>
-        <plugin interceptor="top.yuyufeng.learn.mybatis.interceptor.ExamplePlugin">
+        <plugin interceptor="top.yuyufeng.learn.mybatis.interceptor.DeleteWarningPlugin">
             <property name="someProperty" value="100"/>
         </plugin>
         <plugin interceptor="com.github.pagehelper.PageHelper">
