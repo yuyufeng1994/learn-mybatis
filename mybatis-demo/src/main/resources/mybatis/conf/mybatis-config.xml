@@ -14,10 +14,10 @@
         <!--开启驼峰命名转换-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!--日志-->
-        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
 
         <!-- 开启二级缓存  默认值为true -->
-        <setting name="cacheEnabled" value="false"/>
+        <setting name="cacheEnabled" value="true"/>
 
     </settings>
 
@@ -32,7 +32,8 @@
 
     <environments default="development">
         <environment id="development">
-            <transactionManager type="JDBC"/>
+            <!--JDBC\MANAGED-->
+            <transactionManager type="MANAGED"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://127.0.0.1/learn?useUnicode=true&amp;characterEncoding=utf-8"/>
